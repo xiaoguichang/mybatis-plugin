@@ -1,0 +1,12 @@
+package @package;
+
+import @entityFullClass;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface @daoClassName {
+    public int insert(@entityClass record);
+    public int update(@entityClass record);
+    public int delete(@entityClass record);
+    public @entityClass selectByPrimary(Object id);
+}
