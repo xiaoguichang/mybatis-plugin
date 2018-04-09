@@ -8,7 +8,7 @@ public class BaseConfigureVO {
     private String userName;
 
     private String basePath;
-    private String packagename;
+    private String packageName;
     private String table;
 
     public String getUrl() {
@@ -51,12 +51,12 @@ public class BaseConfigureVO {
         this.basePath = basePath;
     }
 
-    public String getPackagename() {
-        return packagename;
+    public String getPackageName() {
+        return packageName;
     }
 
-    public void setPackagename(String packagename) {
-        this.packagename = packagename;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
     public String getTable() {

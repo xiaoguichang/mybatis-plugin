@@ -1,31 +1,50 @@
 package com.xiaogch.common;
 
 public class ColumnVO {
-    private String
-    private String columnName;
+    private String column;
+    private String name;
+    private String methodNameSuffix;
+    private String type;
     private String dataType;
-    private String columnComment;
-    private String varCharMaxLength;
-
-    private String columnDefault;
-    private String isNullable;
+    private String comment;
+    private Integer maxLength;
+    private Boolean hasDefault;
+    private Boolean nullable;
     private String columnKey;
+    private Boolean id;
     private String extra;
+    private Boolean autoIncrement;
 
-    public String getTableName() {
-        return tableName;
+    public String getColumn() {
+        return column;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public void setColumn(String column) {
+        this.column = column;
     }
 
-    public String getColumnName() {
-        return columnName;
+    public String getName() {
+        return name;
     }
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMethodNameSuffix() {
+        return methodNameSuffix;
+    }
+
+    public void setMethodNameSuffix(String methodNameSuffix) {
+        this.methodNameSuffix = methodNameSuffix;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDataType() {
@@ -36,36 +55,36 @@ public class ColumnVO {
         this.dataType = dataType;
     }
 
-    public String getColumnComment() {
-        return columnComment;
+    public String getComment() {
+        return comment;
     }
 
-    public void setColumnComment(String columnComment) {
-        this.columnComment = columnComment;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public String getVarCharMaxLength() {
-        return varCharMaxLength;
+    public Integer getMaxLength() {
+        return maxLength;
     }
 
-    public void setVarCharMaxLength(String varCharMaxLength) {
-        this.varCharMaxLength = varCharMaxLength;
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
     }
 
-    public String getColumnDefault() {
-        return columnDefault;
+    public Boolean getHasDefault() {
+        return hasDefault;
     }
 
-    public void setColumnDefault(String columnDefault) {
-        this.columnDefault = columnDefault;
+    public void setHasDefault(Boolean hasDefault) {
+        this.hasDefault = hasDefault;
     }
 
-    public String getIsNullable() {
-        return isNullable;
+    public Boolean getNullable() {
+        return nullable;
     }
 
-    public void setIsNullable(String isNullable) {
-        this.isNullable = isNullable;
+    public void setNullable(Boolean nullable) {
+        this.nullable = nullable;
     }
 
     public String getColumnKey() {
@@ -76,11 +95,47 @@ public class ColumnVO {
         this.columnKey = columnKey;
     }
 
+    public Boolean getId() {
+        return id;
+    }
+
+    public void setId(Boolean id) {
+        this.id = id;
+    }
+
     public String getExtra() {
         return extra;
     }
 
     public void setExtra(String extra) {
         this.extra = extra;
+    }
+
+    public Boolean getAutoIncrement() {
+        return autoIncrement;
+    }
+
+    public void setAutoIncrement(Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("ColumnVO{");
+        sb.append("column='").append(column).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", methodNameSuffix='").append(methodNameSuffix).append('\'');
+        sb.append(", type='").append(type).append('\'');
+        sb.append(", dataType='").append(dataType).append('\'');
+        sb.append(", comment='").append(comment).append('\'');
+        sb.append(", maxLength=").append(maxLength);
+        sb.append(", hasDefault=").append(hasDefault);
+        sb.append(", nullable=").append(nullable);
+        sb.append(", columnKey='").append(columnKey).append('\'');
+        sb.append(", id=").append(id);
+        sb.append(", extra='").append(extra).append('\'');
+        sb.append(", autoIncrement=").append(autoIncrement);
+        sb.append('}');
+        return sb.toString();
     }
 }
