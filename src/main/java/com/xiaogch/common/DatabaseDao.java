@@ -8,14 +8,14 @@ import java.util.regex.Pattern;
 
 
 public class DatabaseDao {
-    private BaseConfigureVO baseConfigureVO;
+    private BaseConfigureDTO baseConfigureVO;
 
-    public DatabaseDao(BaseConfigureVO baseConfigureVO) {
+    public DatabaseDao(BaseConfigureDTO baseConfigureVO) {
         this.baseConfigureVO = baseConfigureVO;
     }
 
-    public List<ColumnVO> getColumnList() {
-        List<ColumnVO> columnVOS = new ArrayList<ColumnVO>();
+    public List<ColumnDTO> getColumnList() {
+        List<ColumnDTO> columnDTOS = new ArrayList<ColumnDTO>();
         try {
             Class.forName(baseConfigureVO.getDriver());
             Connection connection = DriverManager.getConnection(baseConfigureVO.getUrl() , baseConfigureVO.getUserName(), baseConfigureVO.getPassword());
@@ -26,26 +26,26 @@ public class DatabaseDao {
             statement.setString(1 , baseConfigureVO.getTable());
             ResultSet resultSet = statement.executeQuery();
             while (resultSet != null && resultSet.next()) {
-                ColumnVO columnVO = new ColumnVO();
-                columnVO.setColumn(resultSet.getString(1));
-                columnVO.setComment(resultSet.getString(2));
-                columnVO.setHasDefault(resultSet.getString(3) != null);
-                columnVO.setNullable("YES".equalsIgnoreCase(resultSet.getString(4)));
-                columnVO.setDataType(resultSet.getString(5));
-                columnVO.setType(typeMap.get(columnVO.getDataType()));
-                columnVO.setMaxLength(resultSet.getInt(6));
-                columnVO.setColumnKey(resultSet.getString(7));
-                columnVO.setId("pri".equalsIgnoreCase(columnVO.getColumnKey()));
-                columnVO.setExtra(resultSet.getString(8));
-                columnVO.setAutoIncrement("auto_increment".equals(columnVO.getExtra()));
-                columnVO.setName(underlineToCamel(columnVO.getColumn()));
-                columnVO.setMethodNameSuffix(columnVO.getName().substring(0, 1).toUpperCase() + columnVO.getName().substring(1));
-                columnVOS.add(columnVO);
+                ColumnDTO columnDTO = new ColumnDTO();
+                columnDTO.setColumn(resultSet.getString(1));
+                columnDTO.setComment(resultSet.getString(2));
+                columnDTO.setHasDefault(resultSet.getString(3) != null);
+                columnDTO.setNullable("YES".equalsIgnoreCase(resultSet.getString(4)));
+                columnDTO.setDataType(resultSet.getString(5));
+                columnDTO.setType(typeMap.get(columnDTO.getDataType()));
+                columnDTO.setMaxLength(resultSet.getInt(6));
+                columnDTO.setColumnKey(resultSet.getString(7));
+                columnDTO.setId("pri".equalsIgnoreCase(columnDTO.getColumnKey()));
+                columnDTO.setExtra(resultSet.getString(8));
+                columnDTO.setAutoIncrement("auto_increment".equals(columnDTO.getExtra()));
+                columnDTO.setName(underlineToCamel(columnDTO.getColumn()));
+                columnDTO.setMethodNameSuffix(columnDTO.getName().substring(0, 1).toUpperCase() + columnDTO.getName().substring(1));
+                columnDTOS.add(columnDTO);
             }
             resultSet.close();
             statement.close();
             connection.close();
-            return columnVOS;
+            return columnDTOS;
         } catch (ClassNotFoundException e) {
            e.printStackTrace();
         } catch (SQLException e) {

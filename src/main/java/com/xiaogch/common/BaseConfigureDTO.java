@@ -1,6 +1,6 @@
 package com.xiaogch.common;
 
-public class BaseConfigureVO {
+public class BaseConfigureDTO {
 
     private String url;
     private String driver;
@@ -65,5 +65,19 @@ public class BaseConfigureVO {
 
     public void setTable(String table) {
         this.table = table;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("BaseConfigureDTO{");
+        sb.append("url='").append(url).append('\'');
+        sb.append(", driver='").append(driver).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", userName='").append(userName).append('\'');
+        sb.append(", basePath='").append(basePath).append('\'');
+        sb.append(", packageName='").append(packageName).append('\'');
+        sb.append(", table='").append(table).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

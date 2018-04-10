@@ -1,6 +1,6 @@
 package com.xiaogch.common;
 
-public class ColumnVO {
+public class ColumnDTO {
     private String column;
     private String name;
     private String methodNameSuffix;
@@ -121,7 +121,7 @@ public class ColumnVO {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ColumnVO{");
+        final StringBuffer sb = new StringBuffer("ColumnDTO{");
         sb.append("column='").append(column).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", methodNameSuffix='").append(methodNameSuffix).append('\'');

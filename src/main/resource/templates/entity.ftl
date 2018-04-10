@@ -6,10 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.io.Serializable;
+<#if useDate>
 import java.util.Date;
+</#if>
 
 @Table(name = "${table}")
-public class ${entityClassName} implements Serialize {
+public class ${entityClassName} implements Serializable {
 <#list attributes as attribute>
 
     /** ${attribute.comment} */
